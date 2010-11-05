@@ -1,0 +1,30 @@
+--- origsrc/gtk+-2.91.3/gtk/fnmatch.c	2010-04-08 21:29:56.000000000 -0500
++++ src/gtk+-2.91.3/gtk/fnmatch.c	2010-11-04 20:11:36.487671400 -0500
+@@ -47,14 +47,14 @@ get_char (const char **str)
+   gunichar c = g_utf8_get_char (*str);
+   *str = g_utf8_next_char (*str);
+ 
+-#ifdef G_PLATFORM_WIN32
++#ifdef G_OS_WIN32
+   c = g_unichar_tolower (c);
+ #endif
+ 
+   return c;
+ }
+ 
+-#if defined(G_OS_WIN32) || defined(G_WITH_CYGWIN)
++#if defined(G_OS_WIN32)
+ #define DO_ESCAPE 0
+ #else  
+ #define DO_ESCAPE 1
+--- origsrc/gtk+-2.91.3/gtk/gtkfilechooserentry.c	2010-10-26 10:13:16.000000000 -0500
++++ src/gtk+-2.91.3/gtk/gtkfilechooserentry.c	2010-11-04 20:12:01.792118700 -0500
+@@ -412,7 +412,7 @@ completion_match_func (GtkEntryCompletio
+   norm_file_part = g_utf8_normalize (chooser_entry->file_part, -1, G_NORMALIZE_ALL);
+   norm_name = g_utf8_normalize (name, -1, G_NORMALIZE_ALL);
+ 
+-#ifdef G_PLATFORM_WIN32
++#ifdef G_OS_WIN32
+   {
+     gchar *temp;
+ 

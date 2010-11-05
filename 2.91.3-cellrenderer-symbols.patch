@@ -1,0 +1,82 @@
+--- origsrc/gtk+-2.91.3/gtk/gtkcellrenderer.c	2010-10-26 10:13:15.000000000 -0500
++++ src/gtk+-2.91.3/gtk/gtkcellrenderer.c	2010-11-04 22:54:10.126456600 -0500
+@@ -606,7 +606,7 @@ gtk_cell_renderer_get_size (GtkCellRende
+     *height = request.height;
+ 
+   if (cell_area)
+-    _gtk_cell_renderer_calc_offset (cell, cell_area, gtk_widget_get_direction (widget),
++    gtk_cell_renderer_calc_offset (cell, cell_area, gtk_widget_get_direction (widget),
+ 				    request.width, request.height, x_offset, y_offset);
+ }
+ 
+@@ -1178,7 +1178,7 @@ gtk_cell_renderer_real_get_preferred_wid
+  * Note this is only a trivial 'align * (allocation - request)' operation.
+  */
+ void
+-_gtk_cell_renderer_calc_offset    (GtkCellRenderer      *cell,
++gtk_cell_renderer_calc_offset    (GtkCellRenderer      *cell,
+ 				   const GdkRectangle   *cell_area,
+ 				   GtkTextDirection      direction,
+ 				   gint                  width,
+--- origsrc/gtk+-2.91.3/gtk/gtkcellrenderer.h	2010-10-26 18:59:46.000000000 -0500
++++ src/gtk+-2.91.3/gtk/gtkcellrenderer.h	2010-11-04 22:53:10.409552500 -0500
+@@ -218,7 +218,7 @@ void             gtk_cell_renderer_stop_
+                                                    gboolean              canceled);
+ 
+ 
+-void            _gtk_cell_renderer_calc_offset    (GtkCellRenderer      *cell,
++void             gtk_cell_renderer_calc_offset    (GtkCellRenderer      *cell,
+ 						   const GdkRectangle   *cell_area,
+ 						   GtkTextDirection      direction,
+ 						   gint                  width,
+--- origsrc/gtk+-2.91.3/gtk/gtkiconview.c	2010-11-01 06:58:50.000000000 -0500
++++ src/gtk+-2.91.3/gtk/gtkiconview.c	2010-11-04 22:53:22.078372900 -0500
+@@ -3219,7 +3219,7 @@ gtk_icon_view_calculate_item_size2 (GtkI
+         item->box[info->position].width  = min_size.width;
+         item->box[info->position].height = min_size.height;
+ 
+-        _gtk_cell_renderer_calc_offset (info->cell, &cell_area,
++        gtk_cell_renderer_calc_offset (info->cell, &cell_area,
+                                         gtk_widget_get_direction (GTK_WIDGET (icon_view)),
+                                         item->box[info->position].width, item->box[info->position].height,
+                                         &item->box[info->position].x, &item->box[info->position].y);
+--- origsrc/gtk+-2.91.3/gtk/gtktreeviewcolumn.c	2010-10-31 13:28:19.000000000 -0500
++++ src/gtk+-2.91.3/gtk/gtktreeviewcolumn.c	2010-11-04 22:53:34.480394500 -0500
+@@ -2859,7 +2859,7 @@ gtk_tree_view_column_cell_process_action
+                                                 tree_column->tree_view,
+                                                 &min_size, NULL);
+ 
+-          _gtk_cell_renderer_calc_offset (info->cell, &rtl_cell_area,
++          gtk_cell_renderer_calc_offset (info->cell, &rtl_cell_area,
+                                           gtk_widget_get_direction (tree_column->tree_view),
+                                           min_size.width, min_size.height,
+                                           &x_offset, &y_offset);
+@@ -3027,7 +3027,7 @@ gtk_tree_view_column_cell_process_action
+                                                 tree_column->tree_view,
+                                                 &min_size, NULL);
+ 
+-          _gtk_cell_renderer_calc_offset (info->cell, &rtl_cell_area,
++          gtk_cell_renderer_calc_offset (info->cell, &rtl_cell_area,
+                                           gtk_widget_get_direction (tree_column->tree_view),
+                                           min_size.width, min_size.height,
+                                           &x_offset, &y_offset);
+--- origsrc/gtk+-2.91.3/modules/other/gail/gailtextcell.c	2010-10-20 01:38:13.000000000 -0500
++++ src/gtk+-2.91.3/modules/other/gail/gailtextcell.c	2010-11-04 22:53:44.854412600 -0500
+@@ -609,7 +609,7 @@ gail_text_cell_get_character_extents (At
+                                         widget,
+                                         &min_size, NULL);
+ 
+-  _gtk_cell_renderer_calc_offset (GTK_CELL_RENDERER (gtk_renderer), &rendered_rect,
++  gtk_cell_renderer_calc_offset (GTK_CELL_RENDERER (gtk_renderer), &rendered_rect,
+                                   gtk_widget_get_direction (widget),
+                                   min_size.width, min_size.height,
+                                   &x_offset, &y_offset);
+@@ -675,7 +675,7 @@ gail_text_cell_get_offset_at_point (AtkT
+   gtk_cell_renderer_get_preferred_size (GTK_CELL_RENDERER (gtk_renderer),
+                                         widget,
+                                         &min_size, NULL);
+-  _gtk_cell_renderer_calc_offset (GTK_CELL_RENDERER (gtk_renderer), &rendered_rect,
++  gtk_cell_renderer_calc_offset (GTK_CELL_RENDERER (gtk_renderer), &rendered_rect,
+                                   gtk_widget_get_direction (widget),
+                                   min_size.width, min_size.height,
+                                   &x_offset, &y_offset);

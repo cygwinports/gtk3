@@ -1,0 +1,11 @@
+category: Gnome
+requires: libgailutil3.0_0 libatk1.0-devel libglib2.0-devel libgtk3.0-devel libpango1.0-devel
+external-source: gtk3.0
+sdesc: "Accessibility support for GTK+ (libdevel)"
+ldesc: "GAIL provides accessibility support for gtk+ by implementing 
+AtkObjects for widgets in gtk+. The GAIL library is a GTK+ module. For 
+example, if the module is loaded in a program which calls 
+gtk_widget_get_accessible() for a GtkEntry an instance of GailEntry is 
+returned. This module is normally used with the atk-bridge GTK+ module 
+from at-spi to allow an assistive technology, e.g a screenreader, to 
+query or drive the program."
