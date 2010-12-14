@@ -6,13 +6,12 @@ HOMEPAGE="http://www.gtk.org/"
 
 PATCH_URI="
 	2.91.3-not-win32.patch
-	2.91.3-cellrenderer-symbols.patch
 "
 
-PKG_NAMES="${PN} ${PN}-demo ${PN}-engines-pixmap libgtk3.0_0 libgtk3.0-devel
+PKG_NAMES="${PN}-demo ${PN}-engines-pixmap libgtk3.0_0 libgtk3.0-devel
            girepository-Gtk3.0 ${PN}-gail libgailutil3.0_0 libgailutil3.0-devel"
 gtk3_0_demo_CONTENTS="usr/bin/gtk3-demo.exe usr/share/gtk-3.0/demo/"
-gtk3_0_engines_pixmap_CONTENTS="usr/lib/gtk-3.0/*/engines/"
+#gtk3_0_engines_pixmap_CONTENTS="usr/lib/gtk-3.0/*/engines/"
 libgtk3_0_0_CONTENTS="--exclude=gtk-builder-convert-3.0 --exclude=*gailutil*
                  --exclude=include --exclude=gtk3-demo.* etc/ usr/bin/
                  usr/lib/gtk-3.0/*/immodules/ usr/lib/gtk-3.0/*/printbackends/
