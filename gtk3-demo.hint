@@ -1,7 +1,7 @@
 category: Gnome X11
-requires: libgcc1 libglib2.0_0 libgdk_pixbuf2.0_0 libgtk3.0_0
+requires: libcairo2 libgcc1 libglib2.0_0 libgdk_pixbuf2.0_0 libgtk3_0 libpango1.0_0
 external-source: gtk3.0
-sdesc: "Multi-platform GUI toolkit (Pixmap theme engine)"
+sdesc: "Multi-platform GUI toolkit (demo)"
 ldesc: "Offering a complete set of widgets, GTK+ is suitable for 
 projects ranging from small one-off projects to complete application 
 suites."
