@@ -37,3 +37,4 @@ CYGCONF_ARGS="
 	--enable-x11-backend
 	--with-xinput
 "
+MAKEOPTS+=" HTML_IMAGES= "
