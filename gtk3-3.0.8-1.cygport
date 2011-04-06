@@ -6,6 +6,7 @@ HOMEPAGE="http://www.gtk.org/"
 
 PATCH_URI="
 	2.91.3-not-win32.patch
+	3.0.8-gtk-doc-117.patch
 "
 
 # gtk3-engines-pixmap
