@@ -1,5 +1,5 @@
 category: Gnome X11
-requires: libgtk3_0 libatk1.0-devel libcairo-devel libfontconfig-devel libgdk_pixbuf2.0-devel libglib2.0-devel gettext libpango1.0-devel libX11-devel libXcomposite-devel libXcursor-devel libXdamage-devel libXext-devel libXfixes-devel libXi-devel libXinerama-devel libXrandr-devel libXrender-devel
+requires: libgtk3_0 libatk1.0-devel libcairo-devel libfontconfig-devel libgdk_pixbuf2.0-devel libglib2.0-devel gettext libpango1.0-devel libX11-devel libXcomposite-devel libXcursor-devel libXdamage-devel libXext-devel libXfixes-devel libXi-devel libXinerama-devel libXrandr-devel
 external-source: gtk3.0
 sdesc: "Multi-platform GUI toolkit (development)"
 ldesc: "Offering a complete set of widgets, GTK+ is suitable for 

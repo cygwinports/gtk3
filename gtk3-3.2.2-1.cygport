@@ -9,12 +9,32 @@ PATCH_URI="
 	3.0.8-gtk-doc-117.patch
 "
 
+DEPEND="gnome-common gtk-doc
+	girepository(Atk-1.0)
+	girepository(cairo-1.0)
+	girepository(GdkPixbuf-2.0)
+	girepository(Pango-1.0)
+	pkgconfig(atk)
+	pkgconfig(cairo)
+	pkgconfig(fontconfig)
+	pkgconfig(gdk-pixbuf-2.0)
+	pkgconfig(pango)
+	pkgconfig(x11)
+	pkgconfig(xcomposite)
+	pkgconfig(xcursor)
+	pkgconfig(xdamage)
+	pkgconfig(xext)
+	pkgconfig(xfixes)
+	pkgconfig(xi)
+	pkgconfig(xinerama)
+	pkgconfig(xrandr)"
+
 # gtk3-engines-pixmap
-PKG_NAMES="gtk3-demo libgtk3_0 libgtk3-devel
-           girepository-Gtk3.0 gtk3-gail libgailutil3_0 libgailutil3-devel"
+PKG_NAMES="gtk3-demo libgtk3_0 libgtk3-devel girepository-Gtk3.0
+           libgailutil3_0 libgailutil3-devel"
 gtk3_demo_CONTENTS="usr/bin/gtk3-demo.exe usr/share/gtk-3.0/demo/"
 #gtk3_engines_pixmap_CONTENTS="usr/lib/gtk-3.0/*/engines/"
-libgtk3_0_CONTENTS="--exclude=*gailutil* --exclude=gtk-update-icon-cache*
+libgtk3_0_CONTENTS="--exclude=*gailutil*
                  --exclude=include --exclude=gtk3-demo.* etc/ usr/bin/
                  usr/lib/gtk-3.0/*/immodules/ usr/lib/gtk-3.0/*/printbackends/
                  usr/share/doc/ usr/share/glib-2.0/ usr/share/locale/
@@ -22,11 +42,9 @@ libgtk3_0_CONTENTS="--exclude=*gailutil* --exclude=gtk-update-icon-cache*
 libgtk3_devel_CONTENTS="--exclude=*gail* usr/include/ usr/lib/lib*
                  usr/lib/pkgconfig/ usr/share/aclocal/ usr/share/gtk-doc/"
 girepository_Gtk3_0_CONTENTS="usr/*/gir*/*-3.0.*"
-gtk3_gail_CONTENTS="usr/lib/gtk-3.0/modules/"
 libgailutil3_0_CONTENTS="usr/bin/cyggailutil-3-0.dll"
 libgailutil3_devel_CONTENTS="usr/include/gail-3.0/ usr/lib/libgailutil*
                  usr/lib/pkgconfig/gail* usr/share/gtk-doc/html/gail*"
-PKG_IGNORE="usr/bin/gtk-update-icon-cache* usr/share/man/man1/gtk-update-icon-cache*"
 
 DIFF_EXCLUDES="gdk.rc"
 
@@ -34,8 +52,10 @@ CYGCONF_ARGS="
 	--enable-explicit-deps
 	--enable-man
 	--enable-xkb
+	--disable-colord
+	--disable-packagekit
 	--disable-test-print-backend
+	--enable-broadway-backend
 	--enable-x11-backend
 	--with-xinput
 "
-MAKEOPTS+=" HTML_IMAGES= "
