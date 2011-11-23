@@ -1,6 +1,6 @@
 category: Gnome
 requires: libgailutil3_0 libatk1.0-devel libglib2.0-devel libgtk3-devel libpango1.0-devel
-external-source: gtk3.0
+external-source: gtk3
 sdesc: "Accessibility support for GTK+ (libdevel)"
 ldesc: "GAIL provides accessibility support for gtk+ by implementing 
 AtkObjects for widgets in gtk+. The GAIL library is a GTK+ module. For 
