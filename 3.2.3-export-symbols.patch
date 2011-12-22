@@ -1,0 +1,17 @@
+These are deprecated but still officially part of the API.
+Specifically, they are required by Java-GNOME 4.1.
+
+--- origsrc/gtk+-3.2.3/gtk/gtktreeview.c	2011-12-19 07:58:28.000000000 -0600
++++ src/gtk+-3.2.3/gtk/gtktreeview.c	2011-12-21 19:55:21.577998000 -0600
+@@ -663,9 +663,9 @@ static void     gtk_tree_view_drag_data_
+                                                   guint             time);
+ 
+ /* tree_model signals */
+-static void     gtk_tree_view_set_hadjustment             (GtkTreeView     *tree_view,
++       void     gtk_tree_view_set_hadjustment             (GtkTreeView     *tree_view,
+                                                            GtkAdjustment   *adjustment);
+-static void     gtk_tree_view_set_vadjustment             (GtkTreeView     *tree_view,
++       void     gtk_tree_view_set_vadjustment             (GtkTreeView     *tree_view,
+                                                            GtkAdjustment   *adjustment);
+ static gboolean gtk_tree_view_real_move_cursor            (GtkTreeView     *tree_view,
+ 							   GtkMovementStep  step,
