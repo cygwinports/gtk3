@@ -7,7 +7,6 @@ HOMEPAGE="http://www.gtk.org/"
 PATCH_URI="
 	2.91.3-not-win32.patch
 	3.0.8-gtk-doc-117.patch
-	3.2.3-export-symbols.patch
 "
 
 DEPEND="gnome-common gtk-doc
@@ -37,8 +36,8 @@ gtk3_demo_CONTENTS="usr/bin/gtk3-demo.exe usr/share/gtk-3.0/demo/"
 #gtk3_engines_pixmap_CONTENTS="usr/lib/gtk-3.0/*/engines/"
 libgtk3_0_CONTENTS="--exclude=*gailutil*
                  --exclude=include --exclude=gtk3-demo.* etc/ usr/bin/
-                 usr/lib/gtk-3.0/*/immodules/ usr/lib/gtk-3.0/*/printbackends/
-                 usr/share/doc/ usr/share/glib-2.0/ usr/share/locale/
+                 usr/lib/gtk-3.0/*/printbackends/ usr/share/doc/
+                 usr/share/glib-2.0/ usr/share/gtk-3.0/*.rng usr/share/locale/
                  usr/share/man/ usr/share/themes/"
 libgtk3_devel_CONTENTS="--exclude=*gail* usr/include/ usr/lib/lib*
                  usr/lib/pkgconfig/ usr/share/aclocal/ usr/share/gtk-doc/"
@@ -59,4 +58,7 @@ CYGCONF_ARGS="
 	--enable-broadway-backend
 	--enable-x11-backend
 	--with-xinput
+	--with-included-immodules
 "
+
+KEEP_LA_FILES="shared"
