@@ -1,7 +1,11 @@
 ORIG_PN=gtk+
 inherit gnome2
 
-DESCRIPTION="The GIMP Toolkit for X11, version ${PV_MAJ}"
+CATEGORY="Gnome X11"
+SUMMARY="GTK+ X11 GUI toolkit"
+DESCRIPTION="Offering a complete set of widgets, GTK+ is suitable for
+projects ranging from small one-off projects to complete application
+suites."
 HOMEPAGE="http://www.gtk.org/"
 
 PATCH_URI="
@@ -32,17 +36,24 @@ DEPEND="gnome-common gtk-doc
 # gtk3-engines-pixmap
 PKG_NAMES="gtk3-demo libgtk3_0 libgtk3-devel girepository-Gtk3.0
            libgailutil3_0 libgailutil3-devel"
+gtk3_demo_SUMMARY="GTK+ Demo application"
 gtk3_demo_CONTENTS="usr/bin/gtk3-demo.exe usr/share/gtk-3.0/demo/"
 #gtk3_engines_pixmap_CONTENTS="usr/lib/gtk-3.0/*/engines/"
+libgtk3_0_SUMMARY="${SUMMARY} (runtime)"
+libgtk3_0_REQUIRES="dconf-service gnome-icon-theme"
 libgtk3_0_CONTENTS="--exclude=*gailutil*
                  --exclude=include --exclude=gtk3-demo.* etc/ usr/bin/
                  usr/lib/gtk-3.0/*/printbackends/ usr/share/doc/
                  usr/share/glib-2.0/ usr/share/gtk-3.0/*.rng usr/share/locale/
                  usr/share/man/ usr/share/themes/"
+libgtk3_devel_SUMMARY="${SUMMARY} (development)"
 libgtk3_devel_CONTENTS="--exclude=*gail* usr/include/ usr/lib/lib*
                  usr/lib/pkgconfig/ usr/share/aclocal/ usr/share/gtk-doc/"
+girepository_Gtk3_0_SUMMARY="${SUMMARY} (GObject Introspection)"
 girepository_Gtk3_0_CONTENTS="usr/*/gir*/*-3.0.*"
+libgailutil3_0_SUMMARY="Accessibility Library for GTK+ (runtime)"
 libgailutil3_0_CONTENTS="usr/bin/cyggailutil-3-0.dll"
+libgailutil3_devel_SUMMARY="Accessibility Library for GTK+ (development)"
 libgailutil3_devel_CONTENTS="usr/include/gail-3.0/ usr/lib/libgailutil*
                  usr/lib/pkgconfig/gail* usr/share/gtk-doc/html/gail*"
 
