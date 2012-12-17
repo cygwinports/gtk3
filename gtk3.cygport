@@ -1,7 +1,10 @@
 ORIG_PN=gtk+
 inherit gnome2
 
-CATEGORY="Gnome X11"
+NAME="gtk3"
+VERSION=3.6.2
+RELEASE=1
+CATEGORY="GNOME X11"
 SUMMARY="GTK+ X11 GUI toolkit"
 DESCRIPTION="Offering a complete set of widgets, GTK+ is suitable for
 projects ranging from small one-off projects to complete application
@@ -10,7 +13,6 @@ HOMEPAGE="http://www.gtk.org/"
 
 PATCH_URI="
 	2.91.3-not-win32.patch
-	3.0.8-gtk-doc-117.patch
 "
 
 DEPEND="gnome-common gtk-doc
@@ -71,5 +73,3 @@ CYGCONF_ARGS="
 	--with-xinput
 	--with-included-immodules
 "
-
-KEEP_LA_FILES="shared"
