@@ -2,7 +2,7 @@ ORIG_PN=gtk+
 inherit gnome2
 
 NAME="gtk3"
-VERSION=3.6.3
+VERSION=3.6.4
 RELEASE=1
 CATEGORY="GNOME X11"
 SUMMARY="GTK+ X11 GUI toolkit"
