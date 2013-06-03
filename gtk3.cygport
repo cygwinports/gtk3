@@ -36,16 +36,18 @@ DEPEND="gnome-common gtk-doc
 	pkgconfig(xrandr)"
 
 # gtk3-engines-pixmap
-PKG_NAMES="gtk3-demo libgtk3_0 libgtk3-devel girepository-Gtk3.0
+PKG_NAMES="gtk-update-icon-cache gtk3-demo libgtk3_0 libgtk3-devel girepository-Gtk3.0
            libgailutil3_0 libgailutil3-devel"
+gtk_update_icon_cache_SUMMARY="GTK+ icon theme cache utility"
+gtk_update_icon_cache_CONTENTS="usr/bin/gtk-update-icon-cache.* usr/share/man/man1/gtk-update-icon-cache.*"
 gtk3_demo_SUMMARY="GTK+ Demo application"
-gtk3_demo_CONTENTS="usr/bin/gtk3-demo.exe usr/share/gtk-3.0/demo/"
+gtk3_demo_CONTENTS="usr/bin/gtk3-demo*.exe usr/bin/gtk3-widget-* usr/share/gtk-3.0/demo/"
 #gtk3_engines_pixmap_CONTENTS="usr/lib/gtk-3.0/*/engines/"
 libgtk3_0_SUMMARY="${SUMMARY} (runtime)"
-libgtk3_0_REQUIRES="dconf-service gnome-icon-theme"
-libgtk3_0_CONTENTS="--exclude=*gailutil*
-                 --exclude=include --exclude=gtk3-demo.* etc/ usr/bin/
-                 usr/lib/gtk-3.0/*/printbackends/ usr/share/doc/
+libgtk3_0_REQUIRES="dconf-service gnome-icon-theme gtk-update-icon-cache"
+libgtk3_0_CONTENTS="--exclude=*gailutil* --exclude=include --exclude=gtk-update-icon-cache*
+                 --exclude=gtk3-demo* --exclude=gtk3-widget-factory.exe
+                 etc/ usr/bin/ usr/lib/gtk-3.0/*/printbackends/ usr/share/doc/
                  usr/share/glib-2.0/ usr/share/gtk-3.0/*.rng usr/share/locale/
                  usr/share/man/ usr/share/themes/"
 libgtk3_devel_SUMMARY="${SUMMARY} (development)"
