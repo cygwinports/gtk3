@@ -2,9 +2,9 @@ ORIG_PN=gtk+
 inherit gnome2
 
 NAME="gtk3"
-VERSION=3.6.4
+VERSION=3.8.2
 RELEASE=1
-CATEGORY="GNOME X11"
+CATEGORY="Libs"
 SUMMARY="GTK+ X11 GUI toolkit"
 DESCRIPTION="Offering a complete set of widgets, GTK+ is suitable for
 projects ranging from small one-off projects to complete application
@@ -38,10 +38,12 @@ DEPEND="gnome-common gtk-doc
 # gtk3-engines-pixmap
 PKG_NAMES="gtk-update-icon-cache gtk3-demo libgtk3_0 libgtk3-devel girepository-Gtk3.0
            libgailutil3_0 libgailutil3-devel"
+gtk_update_icon_cache_CATEGORY="X11"
 gtk_update_icon_cache_SUMMARY="GTK+ icon theme cache utility"
 gtk_update_icon_cache_CONTENTS="usr/bin/gtk-update-icon-cache.* usr/share/man/man1/gtk-update-icon-cache.*"
+gtk3_demo_CATEGORY="X11"
 gtk3_demo_SUMMARY="GTK+ Demo application"
-gtk3_demo_CONTENTS="usr/bin/gtk3-demo*.exe usr/bin/gtk3-widget-* usr/share/gtk-3.0/demo/"
+gtk3_demo_CONTENTS="usr/bin/gtk3-demo*.exe usr/bin/gtk3-widget-*"
 #gtk3_engines_pixmap_CONTENTS="usr/lib/gtk-3.0/*/engines/"
 libgtk3_0_SUMMARY="${SUMMARY} (runtime)"
 libgtk3_0_REQUIRES="dconf-service gnome-icon-theme gtk-update-icon-cache"
