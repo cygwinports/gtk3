@@ -2,7 +2,7 @@ ORIG_PN=gtk+
 inherit gnome2
 
 NAME="gtk3"
-VERSION=3.8.2
+VERSION=3.8.8
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="GTK+ X11 GUI toolkit"
@@ -36,8 +36,8 @@ DEPEND="gnome-common gtk-doc
 	pkgconfig(xrandr)"
 
 # gtk3-engines-pixmap
-PKG_NAMES="gtk-update-icon-cache gtk3-demo libgtk3_0 libgtk3-devel girepository-Gtk3.0
-           libgailutil3_0 libgailutil3-devel"
+PKG_NAMES="gtk-update-icon-cache gtk3-demo libgtk3_0 libgtk3-devel libgtk3-doc
+           girepository-Gtk3.0 libgailutil3_0 libgailutil3-devel libgailutil3-doc"
 gtk_update_icon_cache_CATEGORY="X11"
 gtk_update_icon_cache_SUMMARY="GTK+ icon theme cache utility"
 gtk_update_icon_cache_CONTENTS="usr/bin/gtk-update-icon-cache.* usr/share/man/man1/gtk-update-icon-cache.*"
@@ -54,14 +54,19 @@ libgtk3_0_CONTENTS="--exclude=*gailutil* --exclude=include --exclude=gtk-update-
                  usr/share/man/ usr/share/themes/"
 libgtk3_devel_SUMMARY="${SUMMARY} (development)"
 libgtk3_devel_CONTENTS="--exclude=*gail* usr/include/ usr/lib/lib*
-                 usr/lib/pkgconfig/ usr/share/aclocal/ usr/share/gtk-doc/"
+                 usr/lib/pkgconfig/ usr/share/aclocal/"
+libgtk3_doc_CATEGORY="Doc"
+libgtk3_doc_SUMMARY="${SUMMARY} (API documentation)"
+libgtk3_doc_CONTENTS="usr/share/gtk-doc/html/g?k3/"
 girepository_Gtk3_0_SUMMARY="${SUMMARY} (GObject Introspection)"
 girepository_Gtk3_0_CONTENTS="usr/*/gir*/*-3.0.*"
 libgailutil3_0_SUMMARY="Accessibility Library for GTK+ (runtime)"
 libgailutil3_0_CONTENTS="usr/bin/cyggailutil-3-0.dll"
 libgailutil3_devel_SUMMARY="Accessibility Library for GTK+ (development)"
-libgailutil3_devel_CONTENTS="usr/include/gail-3.0/ usr/lib/libgailutil*
-                 usr/lib/pkgconfig/gail* usr/share/gtk-doc/html/gail*"
+libgailutil3_devel_CONTENTS="usr/include/gail-3.0/ usr/lib/libgailutil* usr/lib/pkgconfig/gail*"
+libgailutil3_doc_CATEGORY="Doc"
+libgailutil3_doc_SUMMARY="Accessibility Library for GTK+ (API documentation)"
+libgailutil3_doc_CONTENTS="usr/share/gtk-doc/html/gail*"
 
 DIFF_EXCLUDES="gdk.rc"
 
