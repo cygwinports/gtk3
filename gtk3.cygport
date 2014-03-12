@@ -2,7 +2,7 @@ ORIG_PN=gtk+
 inherit gnome2
 
 NAME="gtk3"
-VERSION=3.8.8
+VERSION=3.10.7
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="GTK+ X11 GUI toolkit"
@@ -68,7 +68,7 @@ libgailutil3_doc_CATEGORY="Doc"
 libgailutil3_doc_SUMMARY="Accessibility Library for GTK+ (API documentation)"
 libgailutil3_doc_CONTENTS="usr/share/gtk-doc/html/gail*"
 
-DIFF_EXCLUDES="gdk.rc"
+DIFF_EXCLUDES="gdk.rc gtk3.types config.h.win32"
 
 CYGCONF_ARGS="
 	--enable-explicit-deps
