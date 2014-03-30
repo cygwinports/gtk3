@@ -14,6 +14,7 @@ HOMEPAGE="http://www.gtk.org/"
 PATCH_URI="
 	2.91.3-not-win32.patch
 	3.10.7-toolbar-settings.patch
+	3.10.7-cygwin-broadway.patch
 "
 
 DEPEND="gnome-common gtk-doc
