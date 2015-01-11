@@ -2,7 +2,7 @@ ORIG_PN=gtk+
 inherit gnome2
 
 NAME="gtk3"
-VERSION=3.14.6
+VERSION=3.14.7
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="GTK+ X11 GUI toolkit"
@@ -12,7 +12,6 @@ suites."
 HOMEPAGE="http://www.gtk.org/"
 
 PATCH_URI="
-	http://pkgs.fedoraproject.org/cgit/gtk3.git/plain/0001-GtkFileChooser-Don-t-crash-if-invisible-files-are-de.patch?h=f21
 	2.91.3-not-win32.patch
 	3.10.7-cygwin-broadway.patch
 "
