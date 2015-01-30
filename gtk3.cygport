@@ -49,7 +49,7 @@ gtk3_demo_CONTENTS="usr/bin/gtk3-demo*.exe usr/bin/gtk3-icon-browser.exe
 	usr/share/man/man1/gtk3-demo* usr/share/man/man1/gtk3-icon-browser*
 	usr/share/man/man1/gtk3-widget-factory*"
 libgtk3_0_SUMMARY="${SUMMARY} (runtime)"
-libgtk3_0_REQUIRES="dconf-service gnome-icon-theme gtk-update-icon-cache"
+libgtk3_0_REQUIRES="dconf-service adwaita-icon-theme gdk-pixbuf2.0-svg gtk-update-icon-cache"
 libgtk3_0_CONTENTS="--exclude=*gailutil* --exclude=include --exclude=gtk-update-icon-cache*
                  --exclude=gtk3-demo* --exclude=gtk3-icon-browser*
                  --exclude=gtk3-widget-factory* --exclude=gtk-encode-*
