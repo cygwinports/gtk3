@@ -1,28 +1,5 @@
-* Default to :tcp on Cygwin due to lack of abstract socket support
 * crypt(3) supports only the crypt algorithm
 
---- origsrc/gtk+-3.10.7/gdk/broadway/broadwayd.c	2014-01-27 16:40:16.000000000 -0600
-+++ src/gtk+-3.10.7/gdk/broadway/broadwayd.c	2014-03-30 01:41:07.403659300 -0500
-@@ -472,7 +472,7 @@ main (int argc, char *argv[])
- 
-   if (display == NULL)
-     {
--#ifdef G_OS_UNIX
-+#ifndef G_PLATFORM_WIN32
-       display = ":0";
- #else
-       display = ":tcp";
---- origsrc/gtk+-3.10.7/gdk/broadway/gdkbroadway-server.c	2014-01-27 16:40:16.000000000 -0600
-+++ src/gtk+-3.10.7/gdk/broadway/gdkbroadway-server.c	2014-03-30 01:41:47.523954100 -0500
-@@ -107,7 +107,7 @@ _gdk_broadway_server_new (const char *di
- 
-   if (display == NULL)
-     {
--#ifdef G_OS_UNIX
-+#ifndef G_PLATFORM_WIN32
-       display = ":0";
- #else
-       display = ":tcp";
 --- origsrc/gtk+-3.10.7/docs/reference/gtk/broadwayd.xml	2014-01-27 14:19:46.000000000 -0600
 +++ src/gtk+-3.10.7/docs/reference/gtk/broadwayd.xml	2014-03-30 01:44:59.477933200 -0500
 @@ -60,7 +60,7 @@ with a crypt(3) style password hash.
