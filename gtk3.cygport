@@ -2,7 +2,7 @@ ORIG_PN=gtk+
 inherit gnome2
 
 NAME="gtk3"
-VERSION=3.14.13
+VERSION=3.18.2
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="GTK+ X11 GUI toolkit"
@@ -57,6 +57,7 @@ libgtk3_0_CONTENTS="--exclude=*gailutil* --exclude=include --exclude=gtk-update-
                  usr/share/glib-2.0/ usr/share/gtk-3.0/*.rng usr/share/locale/
                  usr/share/man/ usr/share/themes/"
 libgtk3_devel_SUMMARY="${SUMMARY} (development)"
+libgtk3_devel_REQUIRES="girepository-Gtk3.0"
 libgtk3_devel_CONTENTS="--exclude=*gail* usr/bin/gtk-encode-symbolic-svg.exe
 	usr/include/ usr/lib/lib*  usr/lib/pkgconfig/ usr/share/aclocal/
 	usr/share/man/man1/gtk-encode-symbolic-svg*"
