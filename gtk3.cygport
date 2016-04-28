@@ -2,13 +2,13 @@ ORIG_PN=gtk+
 inherit gnome2
 
 NAME="gtk3"
-VERSION=3.18.7
+VERSION=3.18.9
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="GTK+ X11 GUI toolkit"
-DESCRIPTION="Offering a complete set of widgets, GTK+ is suitable for
-projects ranging from small one-off projects to complete application
-suites."
+DESCRIPTION="GTK+ is a multi-platform toolkit for creating graphical user
+interfaces. Offering a complete set of widgets, GTK+ is suitable for projects
+ranging from small one-off tools to complete application suites."
 HOMEPAGE="http://www.gtk.org/"
 
 PATCH_URI="
