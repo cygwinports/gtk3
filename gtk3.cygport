@@ -2,7 +2,7 @@ ORIG_PN=gtk+
 inherit gnome2
 
 NAME="gtk3"
-VERSION=3.18.9
+VERSION=3.22.10
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="GTK+ X11 GUI toolkit"
@@ -14,6 +14,8 @@ HOMEPAGE="http://www.gtk.org/"
 PATCH_URI="
 	2.91.3-not-win32.patch
 	3.10.7-cygwin-broadway.patch
+	3.22.9-noinst-tests.patch
+	3.22.10-xrandr12-compat.patch
 "
 
 DEPEND="gnome-common gtk-doc
@@ -41,26 +43,60 @@ PKG_NAMES="gtk-update-icon-cache gtk3-demo libgtk3_0 libgtk3-devel libgtk3-doc
            girepository-Gtk3.0 libgailutil3_0 libgailutil3-devel libgailutil3-doc"
 gtk_update_icon_cache_CATEGORY="X11"
 gtk_update_icon_cache_SUMMARY="GTK+ icon theme cache utility"
-gtk_update_icon_cache_CONTENTS="usr/bin/gtk-update-icon-cache.* usr/share/man/man1/gtk-update-icon-cache.*"
+gtk_update_icon_cache_CONTENTS="
+	usr/bin/gtk-update-icon-cache.*
+	usr/share/man/man1/gtk-update-icon-cache.*
+"
 gtk3_demo_CATEGORY="X11"
 gtk3_demo_SUMMARY="GTK+ Demo application"
-gtk3_demo_CONTENTS="usr/bin/gtk3-demo*.exe usr/bin/gtk3-icon-browser.exe
-	usr/bin/gtk3-widget-factory.exe usr/share/applications/ usr/share/icons/
-	usr/share/man/man1/gtk3-demo* usr/share/man/man1/gtk3-icon-browser*
-	usr/share/man/man1/gtk3-widget-factory*"
+gtk3_demo_CONTENTS="
+	usr/bin/gtk3-demo*.exe
+	usr/bin/gtk3-icon-browser.exe
+	usr/bin/gtk3-widget-factory.exe
+	usr/share/applications/
+	usr/share/icons/
+	usr/share/man/man1/gtk3-demo*
+	usr/share/man/man1/gtk3-icon-browser*
+	usr/share/man/man1/gtk3-widget-factory*
+"
 libgtk3_0_SUMMARY="${SUMMARY} (runtime)"
 libgtk3_0_REQUIRES="dconf-service adwaita-icon-theme gdk-pixbuf2.0-svg gtk-update-icon-cache"
-libgtk3_0_CONTENTS="--exclude=*gailutil* --exclude=include --exclude=gtk-update-icon-cache*
-                 --exclude=gtk3-demo* --exclude=gtk3-icon-browser*
-                 --exclude=gtk3-widget-factory* --exclude=gtk-encode-*
-                 etc/ usr/bin/ usr/lib/gtk-3.0/ usr/share/doc/
-                 usr/share/glib-2.0/ usr/share/gtk-3.0/*.rng usr/share/locale/
-                 usr/share/man/ usr/share/themes/"
+libgtk3_0_CONTENTS="
+	etc/gtk-3.0/
+	etc/postinstall/
+        usr/bin/broadwayd.exe
+	usr/bin/cyggdk-3-0.dll
+	usr/bin/cyggtk-3-0.dll
+	usr/bin/gtk-launch.exe
+	usr/bin/gtk-query-immodules-3.0.exe
+	usr/bin/gtk-query-settings.exe
+	usr/lib/gtk-3.0/3.0.0/immodules/
+	usr/lib/gtk-3.0/3.0.0/printbackends/
+	usr/share/doc/gtk3/
+	usr/share/glib-2.0/schemas/org.gtk.*
+	usr/share/gtk-3.0/*.rng
+	usr/share/locale/*/*/gtk30*
+	usr/share/man/man1/broadwayd.1*
+	usr/share/man/man1/gtk-launch.1*
+	usr/share/man/man1/gtk-query-immodules-3.0.1*
+	usr/share/man/man1/gtk-query-settings.1*
+	usr/share/themes/
+"
 libgtk3_devel_SUMMARY="${SUMMARY} (development)"
 libgtk3_devel_REQUIRES="girepository-Gtk3.0"
-libgtk3_devel_CONTENTS="--exclude=*gail* usr/bin/gtk-encode-symbolic-svg.exe
-	usr/include/ usr/lib/lib*  usr/lib/pkgconfig/ usr/share/aclocal/
-	usr/share/man/man1/gtk-encode-symbolic-svg*"
+libgtk3_devel_CONTENTS="
+	usr/bin/gtk-builder-tool.exe
+	usr/bin/gtk-encode-symbolic-svg.exe
+	usr/include/gtk-3.0/
+	usr/lib/libgdk-3.dll.a
+	usr/lib/libgtk-3.dll.a
+	usr/lib/pkgconfig/gdk*-3.0.pc
+	usr/lib/pkgconfig/gtk*-3.0.pc
+	usr/share/aclocal/
+	usr/share/gettext/its/gtkbuilder.*
+	usr/share/man/man1/gtk-builder-tool.1*
+	usr/share/man/man1/gtk-encode-symbolic-svg*
+"
 libgtk3_doc_CATEGORY="Doc"
 libgtk3_doc_SUMMARY="${SUMMARY} (API documentation)"
 libgtk3_doc_CONTENTS="usr/share/gtk-doc/html/g?k3/"
@@ -69,7 +105,11 @@ girepository_Gtk3_0_CONTENTS="usr/*/gir*/*-3.0.*"
 libgailutil3_0_SUMMARY="Accessibility Library for GTK+ (runtime)"
 libgailutil3_0_CONTENTS="usr/bin/cyggailutil-3-0.dll"
 libgailutil3_devel_SUMMARY="Accessibility Library for GTK+ (development)"
-libgailutil3_devel_CONTENTS="usr/include/gail-3.0/ usr/lib/libgailutil* usr/lib/pkgconfig/gail*"
+libgailutil3_devel_CONTENTS="
+	usr/include/gail-3.0/
+	usr/lib/libgailutil*
+	usr/lib/pkgconfig/gail*
+"
 libgailutil3_doc_CATEGORY="Doc"
 libgailutil3_doc_SUMMARY="Accessibility Library for GTK+ (API documentation)"
 libgailutil3_doc_CONTENTS="usr/share/gtk-doc/html/gail*"
