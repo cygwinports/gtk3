@@ -2,7 +2,7 @@ ORIG_PN=gtk+
 inherit gnome2
 
 NAME="gtk3"
-VERSION=3.22.15
+VERSION=3.22.26
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="GTK+ X11 GUI toolkit"
@@ -15,7 +15,6 @@ PATCH_URI="
 	2.91.3-not-win32.patch
 	3.10.7-cygwin-broadway.patch
 	3.22.9-noinst-tests.patch
-	3.22.10-xrandr12-compat.patch
 "
 
 DEPEND="gnome-common gtk-doc
